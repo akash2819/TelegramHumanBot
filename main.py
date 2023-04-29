@@ -3,7 +3,6 @@ import telegram
 import openai
 load_dotenv()
 import os
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 telegram_Key = os.getenv("BOT_TOKEN")
 openai_key = os.getenv("OPENAI_KEY")
@@ -29,7 +28,6 @@ def handle_message(update, context):
 
     # Send the response back to the user
     context.bot.send_message(chat_id=update.effective_chat.id, text=response.choices[0].text)
-    # Send the response back to the user
 
 # Set up the handler for user messages
 updater = telegram.ext.Updater(token=telegram_Key, use_context=True)
